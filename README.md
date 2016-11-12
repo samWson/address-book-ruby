@@ -2,5 +2,6 @@
 A simple address book
 
 ## TODO:
-- Add several entry objects into entries array
-- Print out the entire array
+- Make a primary loop for user interface (command line)
+- Add several entry objects into entries array DONE
+- Print out the entire array DONE
