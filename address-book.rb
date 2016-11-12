@@ -11,35 +11,49 @@ class Address_book
   attr_accessor :entries
   attr_reader :title
 
-  # Stores all the address book entries.
-  @entries = []
-
+  # Creates address books.
   def initialize(title)
 
-    # The name of this address book.
-    @title = title
+    @title = title # The name of this address book.
+    @entries = []  # Stores all the entries in the address book.
+  end
+
+  # Print the address book title and all its entries.
+  def show_all_entries()
+
+    puts @title
+
+    @entries.each do |entry|
+      puts entry
+    end
+
   end
 
 end
 
 
-# Creates an address book entry
+# Creates an address book entry.
 class Entry
 
   attr_accessor :name
 
+  # Creates address book entries.
   def initialize(name)
 
-    # The name of the entry
-    @name = name
+    @name = name # The name of the entry
 
+  end
+
+  # Overriding to string method.
+  def to_s
+    "#{@name}"
   end
 end
 
 
+# Make an address book and entries.
 ab = Address_book.new("book1")
 ab.entries.push(Entry.new("entry1"))
+ab.entries.push(Entry.new("entry2"))
 
-puts ab.title
-puts ab.entries
-
+ab.show_all_entries
