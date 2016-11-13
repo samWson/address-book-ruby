@@ -50,10 +50,19 @@ class Entry
   end
 end
 
+# Stores user interface comands.
+command = nil
 
-# Make an address book and entries.
-ab = Address_book.new("book1")
-ab.entries.push(Entry.new("entry1"))
-ab.entries.push(Entry.new("entry2"))
+# User interface loop.
+until command == "q"
 
-ab.show_all_entries
+  # Make an address book and entries.
+  ab = Address_book.new("book1")
+  ab.entries.push(Entry.new("entry1"))
+  ab.entries.push(Entry.new("entry2"))
+
+  ab.show_all_entries
+
+  puts "Press \"q\" to quit"
+  command = gets.chomp.downcase
+end
