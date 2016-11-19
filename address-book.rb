@@ -53,16 +53,44 @@ end
 # Stores user interface comands.
 command = nil
 
+# Main menu string.
+main_menu =
+  "\nAddress Book\n\nSelect an option:\nN\tNew address book\nS\tSelect address book\nE\tNew entry\nQ\tquit"
+
+# User input prompt.
+prompt = "\n>>> "
+
 # User interface loop.
 until command == "q"
 
   # Make an address book and entries.
-  ab = Address_book.new("book1")
-  ab.entries.push(Entry.new("entry1"))
-  ab.entries.push(Entry.new("entry2"))
+  # ab = Address_book.new("book1")
+  # ab.entries.push(Entry.new("entry1"))
+  # ab.entries.push(Entry.new("entry2"))
 
-  ab.show_all_entries
+  # ab.show_all_entries
 
-  puts "Press \"q\" to quit"
+  # puts "Press \"q\" to quit"
+
+  # Display the main menu.
+  puts main_menu
+  print prompt
+
+  # Get the menu selection.
   command = gets.chomp.downcase
+
+  # Do the selected command.
+  case command
+  when "n"
+    puts "\nMaking new address book..."
+  when "s"
+    puts "\nSelecting address book..."
+  when "e"
+    puts "\nMaking new entry..."
+  when "q"
+    puts "\nQuiting..."
+  else
+    puts "\nInvalid choice. Select an option from the menu"
+  end
+  
 end
