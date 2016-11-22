@@ -18,6 +18,11 @@ class Address_book
     @entries = []  # Stores all the entries in the address book.
   end
 
+  # Override to string method.
+  def to_s
+    "#{@title}"
+  end
+
   # Print the address book title and all its entries.
   def show_all_entries()
 
@@ -50,6 +55,11 @@ class Entry
   end
 end
 
+# Puts the currently selected address book.
+def selected_book(address_book)
+  puts "The currently selected address book is #{address_book}"
+end
+
 # Stores user interface comands.
 command = nil
 
@@ -60,8 +70,15 @@ main_menu =
 # User input prompt.
 prompt = "\n>>> "
 
+
 # User interface loop.
 until command == "q"
+
+  # Currently selected address book.
+  selected = nil
+
+  # Stores all address books.
+  books = Array.new
 
   # Make an address book and entries.
   # ab = Address_book.new("book1")
@@ -83,6 +100,21 @@ until command == "q"
   case command
   when "n"
     puts "\nMaking new address book..."
+    puts "\nEnter your address book name: "
+    print prompt
+
+    # Get the new address book name.
+    name = gets.chomp
+
+    # Create the new address book. Add it to the books array,
+    ab = Address_book.new(name)
+    books.push(ab)
+
+    # Set the current address book to the newly created one. Print the selected book.
+    selected = ab
+    selected_book(selected)
+
+
   when "s"
     puts "\nSelecting address book..."
   when "e"
