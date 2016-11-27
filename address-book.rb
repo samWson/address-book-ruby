@@ -106,7 +106,7 @@ until command == "q"
     # Get the new address book name.
     name = gets.chomp
 
-    # Create the new address book. Add it to the books array,
+    # Create the new address book. Add it to the books array.
     ab = Address_book.new(name)
     books.push(ab)
 
@@ -119,6 +119,17 @@ until command == "q"
     puts "\nSelecting address book..."
   when "e"
     puts "\nMaking new entry..."
+    puts "\nEnter your new entry name: "
+    print prompt
+
+    # Get the new entry name.
+    name = gets.chomp
+
+    # Create the new address book. Add it to the entries array.
+    selected.entries.push(Entry.new(name))
+
+    puts "#{name} added to #{selected}"
+
   when "q"
     puts "\nQuiting..."
   else
